@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cookie-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cookie-api
+  template:
+    metadata:
+      labels:
+        app: cookie-api
+    spec:
+      containers:
+      - name: cookie-container
+        image: your-dockerhub-username/cookie-shop-api:latest
+        ports:
+        - containerPort: 5000
